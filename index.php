@@ -2,17 +2,17 @@
 
 session_start();
 
-if ($_SESSION['errors']) {
+if (isset($_SESSION['errors'])) {
 	$errors = $_SESSION['errors'];
 	unset($_SESSION['errors']);
 }
 
-if ($_SESSION["mail_success"]) {
+if (isset($_SESSION["mail_success"])) {
 	$mail_success = $_SESSION["mail_success"];
 	unset($_SESSION['mail_success']);
 }
 
-if ($_REQUEST['submit']) {
+if (isset($_REQUEST['submit'])) {
 
 	$naam = $_REQUEST['naam'];
 	$email = $_REQUEST['email'];
@@ -175,7 +175,6 @@ require("config.php");
 				<div class="dash"></div>
 				<div class="latest-tweet">
 					"<?php echo $tweet['text']; ?>"<br>
-					<span class="tweet-date"><?php echo $tweet['date']; ?></span>
 				</div>
 			</div>
 		</div>
@@ -192,15 +191,15 @@ require("config.php");
 						<table>
 							<tr>
 								<td>Naam:</td>
-								<td><input type="text" <?php if ($errors['naam']) { echo 'style="border: 1px solid red;"'; } ?> name="naam"/></td>
+								<td><input type="text" <?php if (isset($errors['naam'])) { echo 'style="border: 1px solid red;"'; } ?> name="naam"/></td>
 							</tr>
 							<tr>
 								<td>Email:</td>
-								<td><input type="email" <?php if ($errors['email']) { ?> style="border: 1px solid red;"  <?php } ?> name="email"/></td>
+								<td><input type="email" <?php if (isset($errors['email'])) { ?> style="border: 1px solid red;"  <?php } ?> name="email"/></td>
 							</tr>
 							<tr>
 								<td>Bericht:</td>
-								<td><textarea <?php if ($errors['bericht']) { ?> style="border: 1px solid red;" <?php } ?> name="bericht"></textarea></td>
+								<td><textarea <?php if (isset($errors['bericht'])) { ?> style="border: 1px solid red;" <?php } ?> name="bericht"></textarea></td>
 							</tr>
 							<tr>
 								<td></td>

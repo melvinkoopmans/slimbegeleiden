@@ -1,10 +1,7 @@
 {
 	"require": {
-		"abraham/twitteroauth": "dev-master"
+        "php": "^7.4|^8.1",
+		"abraham/twitteroauth": "dev-main"
 	},
-	"autoload": {
-		"classmap": [
-			"class/"
-		]
-	}
+	"autoload": {}
 }
